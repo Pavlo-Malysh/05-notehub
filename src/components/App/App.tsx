@@ -35,7 +35,10 @@ function App() {
   };
 
 
-  const updateSearchQuery = useDebouncedCallback((newSearchQuery: string) => { setSearchQuery(newSearchQuery) }, 300);
+  const updateSearchQuery = useDebouncedCallback((newSearchQuery: string) => {
+    setSearchQuery(newSearchQuery);
+    setCurrentPage(1);
+  }, 300);
 
 
   useEffect(() => {
