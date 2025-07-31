@@ -8,7 +8,7 @@ interface fetchNotesResponse {
 interface Params {
     page: number;
     perPage: number;
-    search?: string;
+    search: string;
 }
 
 
@@ -21,11 +21,12 @@ export const fetchNotes = async (page: number, search: string): Promise<fetchNot
     const params: Params = {
         page,
         perPage: 10,
+        search,
     };
 
-    if (search.trim() !== "") {
-        params.search = search;
-    }
+    // if (search.trim() !== "") {
+    //     params.search = search;
+    // }
 
     const response = await axios.get<fetchNotesResponse>("/notes", {
         params,
