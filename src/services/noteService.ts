@@ -24,10 +24,6 @@ export const fetchNotes = async (page: number, search: string): Promise<fetchNot
         search,
     };
 
-    // if (search.trim() !== "") {
-    //     params.search = search;
-    // }
-
     const response = await axios.get<fetchNotesResponse>("/notes", {
         params,
         headers: {
@@ -48,7 +44,7 @@ export const createNote = async (newNote: NewNote) => {
     return res.data
 }
 
-export const deleteNote = async (noteId: number) => {
+export const deleteNote = async (noteId: string) => {
     const res = await axios.delete(`/notes/${noteId}`, {
         headers: {
             Authorization: `Bearer ${myKey}`,
